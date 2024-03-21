@@ -1,0 +1,55 @@
+def main():
+    print("Tampilan 1: Input Data Diri")
+    nama = input("Nama: ")
+    umur = int(input("Umur: "))
+    jenis_kelamin = input("Jenis Kelamin: ")
+
+    print("\nTampilan 2: Pilih Tujuan Keberangkatan")
+    print("1. Jakarta")
+    print("2. Surabaya")
+    print("3. Bali")
+    pilihan_tujuan = int(input("Masukkan pilihan (1/2/3): "))
+    if pilihan_tujuan == 1:
+        kota_tujuan = "Jakarta"
+    elif pilihan_tujuan == 2:
+        kota_tujuan = "Surabaya"
+    elif pilihan_tujuan == 3:
+        kota_tujuan = "Bali"
+    else:
+        print("Pilihan tidak valid!")
+
+    print("\nTampilan 3: Pilih Jenis Maskapai")
+    print("1. Ekonomi")
+    print("2. Bisnis")
+    print("3. First Class")
+    pilihan_maskapai = int(input("Masukkan pilihan (1/2/3): "))
+    if pilihan_maskapai == 1:
+        jenis_maskapai = "Ekonomi"
+        harga = 500000
+    elif pilihan_maskapai == 2:
+        jenis_maskapai = "Bisnis"
+        harga = 1000000
+    elif pilihan_maskapai == 3:
+        jenis_maskapai = "First Class"
+        harga = 2000000
+    else:
+        print("Pilihan tidak valid!")
+
+    jumlah_tiket = int(input("Masukkan jumlah tiket: "))
+    if jumlah_tiket > 3:
+        total_harga = harga * jumlah_tiket * 0.75  # diskon 25%
+    else:
+        total_harga = harga * jumlah_tiket
+
+    print("\n===== Struk Pemesanan Tiket Pesawat =====")
+    print("Nama:", nama)
+    print("Umur:", umur)
+    print("Jenis Kelamin:", jenis_kelamin)
+    print("Kota Tujuan:", kota_tujuan)
+    print("Jenis Maskapai:", jenis_maskapai)
+    print("Jumlah Tiket:", jumlah_tiket)
+    print("Total Harga:", total_harga)
+
+
+if __name__ == "__main__":
+    main()
