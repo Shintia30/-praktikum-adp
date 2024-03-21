@@ -1,0 +1,70 @@
+program PembelianTiketPesawat;
+var
+  nama, jenis_kelamin, kota_tujuan, jenis_maskapai: string;
+  umur, jumlah_kursi, harga_kursi, total_harga: integer;
+  diskon: real;
+
+begin
+ 
+  WriteLn('Masukkan data diri:');
+  Write('Nama: ');
+  ReadLn(nama);
+  Write('Umur: ');
+  ReadLn(umur);
+  Write('Jenis Kelamin: ');
+  ReadLn(jenis_kelamin);
+
+  WriteLn('Pilih tujuan keberangkatan:');
+  WriteLn('1. Jakarta');
+  WriteLn('2. Surabaya');
+  WriteLn('3. Bali');
+  Write('Masukkan pilihan (1/2/3): ');
+  ReadLn(jumlah_kursi);
+  if jumlah_kursi = 1 then
+    kota_tujuan := 'Jakarta'
+  else if jumlah_kursi = 2 then
+    kota_tujuan := 'Surabaya'
+  else if jumlah_kursi = 3 then
+    kota_tujuan := 'Bali';
+
+  WriteLn('Pilih jenis maskapai:');
+  WriteLn('1. Ekonomi');
+  WriteLn('2. Bisnis');
+  WriteLn('3. First Class');
+  Write('Masukkan pilihan (1/2/3): ');
+  ReadLn(jumlah_kursi);
+  if jumlah_kursi = 1 then
+  begin
+    jenis_maskapai := 'Ekonomi';
+    harga_kursi := 500000;
+  end
+  else if jumlah_kursi = 2 then
+  begin
+    jenis_maskapai := 'Bisnis';
+    harga_kursi:= 1000000;
+  end
+  else if jumlah_kursi = 3 then
+  begin
+    jenis_maskapai := 'First Class';
+    harga_kursi := 2000000;
+  end;
+
+  Write('Masukkan jumlah kursi: ');
+  ReadLn(jumlah_kursi);
+  
+  if jumlah_kursi > 3 then
+    diskon := 0.25 * harga_kursi
+  else
+    diskon := 0;
+  total_harga := (harga_kursi * jumlah_kursi) - Trunc(diskon);
+
+  WriteLn('===== Struk Pemesanan Tiket Pesawat =====');
+  WriteLn('Nama:', nama);
+  WriteLn('Umur:', umur);
+  WriteLn('Jenis Kelamin:', jenis_kelamin);
+  WriteLn('Kota Tujuan:', kota_tujuan);
+  WriteLn('Jenis Maskapai:', jenis_maskapai);
+  WriteLn('Jumlah Tiket:', jumlah_kursi);
+  WriteLn('Total Harga:', total_harga);
+end.
+
