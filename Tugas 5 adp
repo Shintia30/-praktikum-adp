@@ -1,0 +1,25 @@
+def input_array(prompt):
+  while True:
+    try:
+      array = [int(x) for x in input(prompt).split() if x.isdigit() and 0 <= int(x) <= 9]
+      if array:
+        return array
+      else:
+        raise ValueError("Array harus berisi minimal satu bilangan bulat dari 0 sampai 9.")
+    except ValueError as e:
+      print(f"Input tidak valid! {e}. Silahkan masukkan kembali.")
+
+def main():
+  A = input_array("Masukkan elemen array A: ")
+  B = input_array("Masukkan elemen array B: ")
+
+  unik_A = set(A) - set(B)
+  unik_B = set(B) - set(A)
+  common = set(A) & set(B)
+
+  print("Array yang hanya ada di A:", unik_A)
+  print("Array yang hanya ada di B:", unik_B)
+  print("Array yang ada di A dan B:", common)
+
+if __name__ == "__main__":
+  main()
