@@ -1,0 +1,34 @@
+nama = str(input("masukan nama:"))
+nim = int(input("masukan nim:"))
+shinf = int(input("masukan shif:"))
+print("_________________________________________")
+data_barang = [
+    [5000, 10, "tepung terigu"],
+    [3000, 25, "sunligth"],
+    [7000, 7, "Shampoo"],
+    [12000, 15, "minyak makan"],
+]
+
+print("Tabel Harga dan Stok Barang:")
+print("Nama Barang   | Harga   | Stok")
+for barang in data_barang:
+    print(f"{barang[2]:<13} | {barang[0]:<7} | {barang[1]}")
+
+total_keuntungan = 0
+keuntungan_terbesar = 0
+keuntungan_terkecil = float('inf')
+
+for harga, stok, nama_barang in data_barang:
+    keuntungan = harga * stok
+    total_keuntungan += keuntungan
+    if keuntungan > keuntungan_terbesar:
+        keuntungan_terbesar = keuntungan
+        nama_barang_terbesar = nama_barang
+    if keuntungan < keuntungan_terkecil:
+        keuntungan_terkecil = keuntungan
+        nama_barang_terkecil = nama_barang
+
+print("\nInformasi Tambahan:")
+print("a. Nama barang dengan keuntungan terbesar:", nama_barang_terbesar)
+print("b. Nama barang dengan keuntungan terkecil:", nama_barang_terkecil)
+print("c. Total keuntungan yang diperoleh:", total_keuntungan)
