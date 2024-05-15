@@ -1,0 +1,31 @@
+nama = str(input("masukan nama:"))
+nim = int(input("masukan nim:"))
+shif = int(input("masukan shif:"))
+
+def hitung_kecepatan_akhir(kecepatan_awal, percepatan, waktu):
+    return kecepatan_awal + (percepatan * waktu)
+
+def hitung_jarak_ditempuh(kecepatan_awal, percepatan, waktu):
+    return (kecepatan_awal * waktu) + (0.5 * percepatan * waktu**2)
+
+n = int(input("Masukkan jumlah data: "))
+input_data = []
+
+for i in range(n):
+    print(f"Masukkan data ke-{i+1}:")
+    kecepatan_awal = float(input("Kecepatan awal: "))
+    percepatan = float(input("Percepatan: "))
+    waktu = float(input("Waktu: "))
+    kecepatan_akhir = hitung_kecepatan_akhir(kecepatan_awal, percepatan, waktu)
+    jarak = hitung_jarak_ditempuh(kecepatan_awal, percepatan, waktu)
+    input_data.append((kecepatan_awal, percepatan, waktu, kecepatan_akhir, jarak))
+
+print("-----------------------------------------------------------------------------------")
+print("| No. | Kecepatan Awal | Percepatan  | Waktu  | Kecepatan Akhir | Jarak yang Ditempuh |")
+print("-----------------------------------------------------------------------------------")
+i = 1
+for data in input_data:
+    kecepatan_awal, percepatan, waktu, kecepatan_akhir, jarak = data
+    print(f"| {i:<3} | {kecepatan_awal:<14.2f} | {percepatan:<11.2f} | {waktu:<6.2f} | {kecepatan_akhir:<16.2f} | {jarak:<20.2f} |")
+    i += 1
+print("-----------------------------------------------------------------------------------")
