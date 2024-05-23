@@ -1,0 +1,61 @@
+print("NAMA : DEWI SHINTIA")
+print("NIMI : 2310433001")
+print("SHIF : 4")
+def show_menu():
+    print("\nMenu:")
+    print("1. Tambah Data Keuangan")
+    print("2. Hapus Data Keuangan")
+    print("3. Tampilkan Data Keuangan")
+    print("4. Keluar")
+
+def tambah_data_keuangan():
+    tanggal = input("Tanggal Transaksi (YYYY-MM-DD): ")
+    keterangan = input("Keterangan Transaksi: ")
+    jumlah = float(input("Jumlah Uang: "))
+    tipe = input("Tipe Transaksi (Pemasukan/Pengeluaran): ")
+
+    with open("keuangan.txt", "a") as file:
+        file.write(f"{tanggal},{keterangan},{jumlah},{tipe}\n")
+
+    print("Data keuangan berhasil ditambahkan!")
+
+def hapus_data_keuangan():
+    tanggal = input("Masukkan tanggal transaksi yang ingin dihapus (YYYY-MM-DD): ")
+    
+   
+    try:
+        with open("keuangan.txt", "r") as file:
+            lines = file.readlines()
+
+        with open("keuangan.txt", "w") as file:
+            for line in lines:
+                if tanggal not in line:
+                    file.write(line)
+
+        print("Data keuangan berhasil dihapus!")
+    except FileNotFoundError:
+        print("Tidak ada data keuangan yang tersedia.")
+
+def tampilkan_data_keuangan():
+        with open("keuangan.txt", "r") as file:
+            print("\nData Keuangan:")
+            for line in file:
+                tanggal, keterangan, jumlah, tipe = line.strip().split(",")
+                print(f"Tanggal: {tanggal}, Keterangan: {keterangan}, Jumlah: {jumlah}, Tipe: {tipe}")
+        print("Tidak ada data keuangan yang tersedia.")
+
+while True:
+    show_menu()
+    pilihan = input("Pilih menu (1/2/3/4): ")
+
+    if pilihan == "1":
+        tambah_data_keuangan()
+    elif pilihan == "2":
+        hapus_data_keuangan()
+    elif pilihan == "3":
+        tampilkan_data_keuangan()
+    elif pilihan == "4":
+        print("Terima kasih telah menggunakan program keuangan!")
+        break
+    else:
+        print("Pilihan tidak valid. Silakan pilih kembali.")
