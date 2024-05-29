@@ -1,0 +1,34 @@
+import os
+os.system('cls')
+
+from termcolor import colored, cprint
+
+print(" " * 12, end="")
+cprint("i", 'red', 'on_red')
+
+
+print(" " * 11, end="")
+cprint(" " * 3, 'white', 'on_white')
+
+print(" " * 10, end="")
+cprint(" " * 5, 'white', 'on_magenta')
+
+print(" " * 9, end="")
+cprint(" " * 7, 'white', 'on_white')
+
+print(" " * 8, end="")
+cprint(" " * 9, 'white', 'on_magenta')
+
+print(" " * 7, end="")
+cprint(" "*11, 'white', 'on_white')
+
+print(" " * 6, end="")
+cprint(" "*13, 'white', 'on_magenta')
+
+print(" " * 5, end="")
+cprint(" " * 15, 'white', 'on_red')
+print("selamat ulang tahun bagi yang ulang tahun")
+
+print("nama:dewi shitnia")
+print("nim:2310433001")
+print("shif:4")
